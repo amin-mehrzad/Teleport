@@ -54,6 +54,7 @@ export default function HomeScreen() {
 
 HomeScreen.navigationOptions = {
   header: null,
+
 };
 
 function DevelopmentModeNotice() {
@@ -175,5 +176,5 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
-  },
+  }
 });
