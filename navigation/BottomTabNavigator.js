@@ -15,7 +15,9 @@ export default function BottomTabNavigator({ navigation, route }) {
     headerTitle: getHeaderTitle(route),
     headerStyle: {
       backgroundColor: '#fa5e46'
-    }
+    },
+    headerTintColor: '#fff',
+
   });
 
   return (

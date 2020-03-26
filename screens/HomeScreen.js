@@ -1,26 +1,42 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
 import { MonoText } from '../components/StyledText';
 
+import { Container, Header, Content, Card, CardItem, Body } from 'native-base';
+
+
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+        <View style={styles.flightWrapper}>
+          <View style={styles.flagContainer}>
+            <Image
+              source={require('../assets/images/flag-turkey-flagge-rechteckig-70x102.gif')}
+              style={styles.flagImage}
+            />
+          </View>
+          <View style={styles.flagContainer}>
+            <Image
+              source={require('../assets/images/flag-united-states-flagge-rechteckig-70x105.gif')}
+              style={styles.flagImage}
+            />
+          </View>
         </View>
 
-        <View style={styles.getStartedContainer}>
+        <Card>
+            <CardItem>
+              <Body>
+                <Text>
+                   //Your text here
+                </Text>
+              </Body>
+            </CardItem>
+          </Card>
+        {/* <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
           <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
@@ -38,7 +54,7 @@ export default function HomeScreen() {
           <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
             <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
@@ -105,17 +121,29 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+  flightWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
+
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+  flagContainer: {
+    width: 102,
+    height: 70,
+    borderRadius: 5,
+    overflow: "hidden",
+    margin: 15
+
+  },
+  flagImage: {
+    // width: 100,
+    // height: 80,
+    // resizeMode: 'contain',
+    // marginTop: 3,
+    // marginLeft: -10,
+    // borderRadius: 60
+
   },
   getStartedContainer: {
     alignItems: 'center',
