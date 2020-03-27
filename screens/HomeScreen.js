@@ -2,40 +2,54 @@ import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import { Ionicons, Entypo } from '@expo/vector-icons';
+
 
 import { MonoText } from '../components/StyledText';
 
-import { Container, Header, Content, Card, CardItem, Body } from 'native-base';
+import { Container, Header, Content, Card, CardItem, Body, Row } from 'native-base';
 
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.flightWrapper}>
-          <View style={styles.flagContainer}>
-            <Image
-              source={require('../assets/images/flag-turkey-flagge-rechteckig-70x102.gif')}
-              style={styles.flagImage}
-            />
-          </View>
-          <View style={styles.flagContainer}>
-            <Image
-              source={require('../assets/images/flag-united-states-flagge-rechteckig-70x105.gif')}
-              style={styles.flagImage}
-            />
-          </View>
-        </View>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
 
-        <Card>
-            <CardItem>
-              <Body>
-                <Text>
-                   //Your text here
-                </Text>
-              </Body>
-            </CardItem>
-          </Card>
+
+        <Card style={styles.card}>
+          {/* <CardItem>
+              <Body> */}
+          {/* <View style={styles.flightWrapper}> */}
+          <View style={styles.flight}>
+            <View style={styles.flagContainer}>
+              <Image
+                source={require('../assets/images/flag-turkey-flagge-rechteckig-70x102.gif')}
+                style={styles.flagImage}
+              />
+            </View >
+            <Text>Istanbul</Text>
+          </View>
+          <View style={styles.flight}>
+            <Entypo
+              name="chevron-thin-right" size={32} color="gray"
+              style={styles.flightIcon}
+            />
+          </View>
+          <View style={styles.flight}>
+            <View style={styles.flagContainer}>
+              <Image
+                source={require('../assets/images/flag-united-states-flagge-rechteckig-70x105.gif')}
+                style={styles.flagImage}
+              />
+            </View>
+            <Text>San Juan</Text>
+
+          </View>
+          {/* </View> */}
+
+          {/* </Body>
+            </CardItem> */}
+        </Card>
         {/* <View style={styles.getStartedContainer}>
           <DevelopmentModeNotice />
 
@@ -57,13 +71,13 @@ export default function HomeScreen() {
         </View> */}
       </ScrollView>
 
-      <View style={styles.tabBarInfoContainer}>
+      {/* <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
         <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
           <MonoText style={styles.codeHighlightText}>navigation/BottomTabNavigator.js</MonoText>
         </View>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -110,6 +124,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+
   },
   developmentModeText: {
     marginBottom: 20,
@@ -120,20 +135,31 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 30,
+    alignItems: 'center',
+    //  flex: 1,
+    //  justifyContent: 'center'
   },
   flightWrapper: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-
-
+    alignItems:"center"
+  },
+  flight: {
+    flex: 1,
+    flexDirection: 'column',
+    width:'30%',
+    justifyContent: 'center',
+    
+    marginHorizontal: 10
+//margin:10
   },
   flagContainer: {
     width: 102,
     height: 70,
     borderRadius: 5,
     overflow: "hidden",
-    margin: 15
+    marginVertical: 15
 
   },
   flagImage: {
@@ -204,5 +230,23 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  card: {
+    //maxWidth:'95%',
+    // marginHorizontal: 20,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '90%'
+  },
+  flightIcon: {
+   // marginTop: 0,
+    margin:'auto',
+    alignItems:'center',
+    justifyContent:"center",
+    // flex:1,
+    // flexDirection:'row'
+    marginStart:'35%'
   }
+
 });
